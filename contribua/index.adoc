@@ -1,0 +1,74 @@
+=  Contribua com a página de documentação dos Guardians
+:toc: macro
+:toc-title:
+
+toc::[]
+
+== Introdução
+A página de documentação dos Guardians é um fork do projeto de link:https://github.com/openshift/openshift-docs[documentação do openshift].
+Esse documento é um guia de como contribuir para adicionar e/ou editar alguma informação dessa página. O projeto de documentação dos Guardians atualmente utiliza as seguintes tecnologias:
+
+* link:https://docs.docker.com/[Docker]
+* https://docs.docker.com/compose/install/[Docker Compose]
+* link:http://asciidoctor.org/docs/asciidoc-writers-guide/[Asciidoctor]
+* link:http://www.asciibinder.org/latest/welcome/[Asciibinder]
+
+Após fazer o clone do projeto de documentação dos Guardians, acesse a pasta e execute o comando `docker-compose up --build`.
+Será baixado as imagens docker necessárias para o projeto e o no final o *asciidoctor* irá aguardar a conexão do livereload.
+Após isso, abra seu navegador preferido com o *plugin do liverreload* instalado, acesse o endereço
+`http://localhost:8080/_preview/main/latest/welcome/index.html` e ative o livereload para que quando um arquivo *.adoc* for modificado a página for atualizada automaticamente
+sem ter a necessidade de reiniciar os containers.s
+
+.Asciidoctor esperando conexão do LiveReload
+image::contribua_01.png["Asciidoctor esperando conexão do LiveReload"]
+
+.Após ativar o LiveReload
+image::contribua_02.png["Após ativar o LiveReload"]
+
+[NOTE]
+====
+Agora que o clone do projeto e a conexão do LiveReload foi feito, você está pronto para contribuir com a documentação dos Guardians!
+====
+
+== Estrutura do projeto
+
+Cada diretório raiz do projeto de documentação dos Guardians pode conter uma coleção de tópicos raiz, e/ou os subdiretórios que
+está dentro do diretório será um segundo nível do tópico raiz. As exceções para essa regra são diretórios cujo nome  começam com um *underline*
+( como _docker, _templates), essas páginas são utilizadas de configuração para montar as páginas de documentação.
+
+Cada diretório raiz (tópico) contém tópicos com arquivos AsciiDoc.
+
+----
+/
+/topico_dir1
+/subtopico_dir1
+/subtopico_dirN
+/topico_dir/topico1.adoc
+/topico_dir/topicoN.adoc
+/topico_dir/subtopico_dir1/topico1.adoc
+/topico_dir/subtopico_dirN/topicoN.adoc
+/topico_dir/images
+/topico_dir/images/img1.png
+/topico_dir/images/imgN.png
+...
+/topico_dir2
+----
+
+
+
+
+== Criar o index.adoc
+
+== Adiciona topic_map.yaml
+
+== Acesse a página welcome
+
+== Ative o LiveReload
+
+== Modifique a página welcome e salve a alteração
+
+== Documente em idex.adoc
+
+== execute build.sh
+
+== copie os arquivos para o repositório do github pages
