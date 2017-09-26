@@ -1,9 +1,0 @@
-[[welcome-revhistory-all]]
-= Revision History: All Guides
-{product-author}
-{product-version}
-:data-uri:
-:icons:
-:experimental:
-
-// do-release: revhist-tables
