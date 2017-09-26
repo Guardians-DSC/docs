@@ -110,14 +110,15 @@
 <ul class="sectlevel1">
 <li><a href="#introdução">Introdução</a></li>
 <li><a href="#estrutura-do-projeto">Estrutura do projeto</a></li>
-<li><a href="#criar-o-index-adoc">Criar o index.adoc</a></li>
-<li><a href="#adiciona-topic_map-yaml">Adiciona topic_map.yaml</a></li>
-<li><a href="#acesse-a-página-welcome">Acesse a página welcome</a></li>
-<li><a href="#ative-o-livereload">Ative o LiveReload</a></li>
-<li><a href="#modifique-a-página-welcome-e-salve-a-alteração">Modifique a página welcome e salve a alteração</a></li>
-<li><a href="#documente-em-idex-adoc">Documente em idex.adoc</a></li>
-<li><a href="#execute-build-sh">execute build.sh</a></li>
-<li><a href="#copie-os-arquivos-para-o-repositório-do-github-pages">copie os arquivos para o repositório do github pages</a></li>
+<li><a href="#criando-um-novo-tópico">Criando um novo tópico</a>
+<ul class="sectlevel2">
+<li><a href="#tópico-e-subtópicos">Tópico e Subtópicos</a></li>
+<li><a href="#index-adoc">Index.adoc</a></li>
+<li><a href="#topic_map-yaml">Topic_map.yaml</a></li>
+<li><a href="#contribua">Contribua!</a></li>
+</ul>
+</li>
+<li><a href="#github-pages">GitHub Pages</a></li>
 </ul>
 </div>
 </div>
@@ -148,9 +149,9 @@ Esse documento é um guia de como contribuir para adicionar e/ou editar alguma i
 <div class="paragraph">
 <p>Após fazer o clone do projeto de documentação dos Guardians, acesse a pasta e execute o comando <code>docker-compose up --build</code>.
 Será baixado as imagens docker necessárias para o projeto e o no final o <strong>asciidoctor</strong> irá aguardar a conexão do livereload.
-Após isso, abra seu navegador preferido com o <strong>plugin do liverreload</strong> instalado, acesse o endereço
-<code><a href="http://localhost:8080/docs/welcome/index.html" class="bare">http://localhost:8080/docs/welcome/index.html</a></code> e ative o livereload para que quando um arquivo <strong>.adoc</strong> for modificado a página for atualizada automaticamente
-sem ter a necessidade de reiniciar os containers.s</p>
+Após isso, abra seu navegador preferido com a <a href="http://livereload.com/extensions/"><strong>extensão do liverreload</strong></a> instalado, acesse o endereço
+<code><a href="http://localhost:8080/docs/welcome/" class="bare">http://localhost:8080/docs/welcome/</a></code> e ative o livereload para que quando um arquivo <strong>.adoc</strong> for modificado a página for atualizada automaticamente
+sem ter a necessidade de reiniciar os containers.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -186,10 +187,10 @@ sem ter a necessidade de reiniciar os containers.s</p>
 <div class="paragraph">
 <p>Cada diretório raiz do projeto de documentação dos Guardians pode conter uma coleção de tópicos raiz, e/ou os subdiretórios que
 está dentro do diretório será um segundo nível do tópico raiz. As exceções para essa regra são diretórios cujo nome  começam com um <strong>underline</strong>
-( como _docker, _templates), essas páginas são utilizadas de configuração para montar as páginas de documentação.</p>
+( como _docker, _templates), essas páginas são utilizadas na configuração para montar as páginas de documentação.</p>
 </div>
 <div class="paragraph">
-<p>Cada diretório raiz (tópico) contém tópicos com arquivos AsciiDoc.</p>
+<p>Cada diretório raiz (tópico) contém tópicos com arquivos <a href="http://asciidoctor.org/docs/asciidoc-writers-guide/">AsciiDoc</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -211,49 +212,53 @@ está dentro do diretório será um segundo nível do tópico raiz. As exceçõe
 </div>
 </div>
 <div class="sect1">
-<h2 id="criar-o-index-adoc"><a class="anchor" href="#criar-o-index-adoc"></a>Criar o index.adoc</h2>
+<h2 id="criando-um-novo-tópico"><a class="anchor" href="#criando-um-novo-tópico"></a>Criando um novo tópico</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="tópico-e-subtópicos"><a class="anchor" href="#tópico-e-subtópicos"></a>Tópico e Subtópicos</h3>
+<div class="paragraph">
+<p>Na raiz do projeto de documentação crie uma pasta com o nome do assunto em que você queira compartilhar, desta maneira você irá iniciar um <strong>novo assunto</strong> a ser compartilhado.
+Caso queira adicionar um subtópico para um assunto já criado, basta adicionar uma pasta dentro da pasta do assunto específico.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="index-adoc"><a class="anchor" href="#index-adoc"></a>Index.adoc</h3>
+<div class="paragraph">
+<p>Após criar a pasta ou subpasta é necessário criar um arquivo chamado <code>index.adoc</code>. É a partir desse arquivo que seja gerado a principal página do tópico em que você está criando.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="topic_map-yaml"><a class="anchor" href="#topic_map-yaml"></a>Topic_map.yaml</h3>
+<div class="paragraph">
+<p>Certo, nesse momento está quase tudo pronto para que você comece de fato a contribuir para documentação. Antes que você coloque a mão na massa é necessário que você adicione a pasta que
+foi criado no arquivo <code>topic_map.yaml</code>. Nesse arquivo é onde o <strong>asciibinder</strong> vai saber quais tópicos irá converter de <code>.adoc &#8594; .html</code> e também em qual ordem será listado os tópicos no menu
+a esquerda. Segue um exemplo de entrada válida para o arquivo topic_map.yaml, nesse exemplo criei uma pasta na raiz chamada <code>hello_world</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>---
+Name: Hello World!
+Dir: hello_world
+Distros: main
+Topics:
+  - Name: Exemplo de contribuição
+    File: index
+    Distros: main</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contribua"><a class="anchor" href="#contribua"></a>Contribua!</h3>
+<div class="paragraph">
+<p>A partir de agora você já está apto para começar a editar o arquivo <strong>index.adoc</strong> que foi criado dentro da pasta nos passos anteriores. Não será mais necessário mais nenhuma configuração,
+basta escrever o que queira compartilhar que a página será carregada automaticamente (caso o livereload esteja ativado) e a pasta que você fez será adicionado na lista de tópicos no menu
+a esquerda.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="adiciona-topic_map-yaml"><a class="anchor" href="#adiciona-topic_map-yaml"></a>Adiciona topic_map.yaml</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="acesse-a-página-welcome"><a class="anchor" href="#acesse-a-página-welcome"></a>Acesse a página welcome</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="ative-o-livereload"><a class="anchor" href="#ative-o-livereload"></a>Ative o LiveReload</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="modifique-a-página-welcome-e-salve-a-alteração"><a class="anchor" href="#modifique-a-página-welcome-e-salve-a-alteração"></a>Modifique a página welcome e salve a alteração</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="documente-em-idex-adoc"><a class="anchor" href="#documente-em-idex-adoc"></a>Documente em idex.adoc</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="execute-build-sh"><a class="anchor" href="#execute-build-sh"></a>execute build.sh</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="copie-os-arquivos-para-o-repositório-do-github-pages"><a class="anchor" href="#copie-os-arquivos-para-o-repositório-do-github-pages"></a>copie os arquivos para o repositório do github pages</h2>
+<h2 id="github-pages"><a class="anchor" href="#github-pages"></a>GitHub Pages</h2>
 <div class="sectionbody">
 
 </div>
