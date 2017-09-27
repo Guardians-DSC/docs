@@ -118,7 +118,11 @@
 <li><a href="#contribua">Contribua!</a></li>
 </ul>
 </li>
-<li><a href="#github-pages">GitHub Pages</a></li>
+<li><a href="#github-pages">GitHub Pages</a>
+<ul class="sectlevel2">
+<li><a href="#build-sh">Build.sh</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -127,8 +131,8 @@
 <h2 id="introdução"><a class="anchor" href="#introdução"></a>Introdução</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A página de documentação dos Guardians é um fork do projeto de <a href="https://github.com/openshift/openshift-docs">documentação do openshift</a>.
-Esse documento é um guia de como contribuir para adicionar e/ou editar alguma informação dessa página. O projeto de documentação dos Guardians atualmente utiliza as seguintes tecnologias:</p>
+<p>A página de documentação do Guardians-DSC é um fork do projeto de <a href="https://github.com/openshift/openshift-docs">documentação do openshift</a>.
+Esse documento é um guia de como contribuir para adicionar e/ou editar alguma informação dessa página. O projeto atualmente utiliza as seguintes tecnologias:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -147,7 +151,7 @@ Esse documento é um guia de como contribuir para adicionar e/ou editar alguma i
 </ul>
 </div>
 <div class="paragraph">
-<p>Após fazer o clone do projeto de documentação dos Guardians, acesse a pasta e execute o comando <code>docker-compose up --build</code>.
+<p>Após fazer o clone do projeto de documentação do Guardians-DSC, acesse a pasta e execute o comando <code>docker-compose up --build</code>.
 Será baixado as imagens docker necessárias para o projeto e o no final o <strong>asciidoctor</strong> irá aguardar a conexão do livereload.
 Após isso, abra seu navegador preferido com a <a href="http://livereload.com/extensions/"><strong>extensão do liverreload</strong></a> instalado, acesse o endereço
 <code><a href="http://localhost:8080/docs/welcome/" class="bare">http://localhost:8080/docs/welcome/</a></code> e ative o livereload para que quando um arquivo <strong>.adoc</strong> for modificado a página for atualizada automaticamente
@@ -173,7 +177,7 @@ sem ter a necessidade de reiniciar os containers.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Agora que o clone do projeto e a conexão do LiveReload foi feito, você está pronto para contribuir com a documentação dos Guardians!</p>
+<p>Agora que o clone do projeto e a conexão do LiveReload foi feito, você está pronto para contribuir com a documentação do Guardians-DSC!</p>
 </div>
 </td>
 </tr>
@@ -185,7 +189,7 @@ sem ter a necessidade de reiniciar os containers.</p>
 <h2 id="estrutura-do-projeto"><a class="anchor" href="#estrutura-do-projeto"></a>Estrutura do projeto</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cada diretório raiz do projeto de documentação dos Guardians pode conter uma coleção de tópicos raiz, e/ou os subdiretórios que
+<p>Cada diretório raiz do projeto de documentação do Guardians-DSC  pode conter uma coleção de tópicos raiz, e/ou os subdiretórios que
 está dentro do diretório será um segundo nível do tópico raiz. As exceções para essa regra são diretórios cujo nome  começam com um <strong>underline</strong>
 ( como _docker, _templates), essas páginas são utilizadas na configuração para montar as páginas de documentação.</p>
 </div>
@@ -260,7 +264,52 @@ a esquerda.</p>
 <div class="sect1">
 <h2 id="github-pages"><a class="anchor" href="#github-pages"></a>GitHub Pages</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Para cada build que o asciibinder realiza, ele converte os arquivos <strong>.adoc modificados para .html</strong> e coloca na pasta <code>_preview</code> (por padrão, esta página é adiciona no .gitignore).
+Caso você já tenha algum <strong>servidor http</strong> basta servir esta pasta que sua documentação estará acessível. Porém, caso queira hospedar sua documentação assim como Guardians-DSC no GitHub Pages
+explicaremos qual foi a solução utilizada pelo grupo.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>O asciibinder realiza a documentação a partir de um repositório git, utilizando as branchs do projeto para também versionar a documentação, por padrão é chamado a versão da branch master de latest,
+ mas pode ser facilmente alterado no arquivo <code>_ditro-map.yml</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="build-sh"><a class="anchor" href="#build-sh"></a>Build.sh</h3>
+<div class="paragraph">
+<p>Na raiz do projeto existe um shell script chamado <code>build.sh</code> esse arquivo é responsável para pegar <strong>todos</strong> os documentos .adoc e converter para html utilizando o asciibinder do container
+e fazer as alterações necessárias para deixar a documentação da branch master na raiz da pasta <code>_build/main</code>.</p>
+</div>
+<div class="paragraph">
+<p>Após fazer isso, o script copia os arquivos de <code>_build/main</code> e adiciona na branch <strong>gh-pages</strong>. Desta maneira, basta realizar o commit e em seguida o push que as alterações feitas na documentação
+ estará acessivel na página do seu github pages.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Antes</strong> de executar o comando build, certifique-se que <strong>todas as mudanças feitas na branch que você está foram commitadas</strong>, caso contrário, não será possivel passar os arquivos para a branch
+gh-pages.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
       </div>
