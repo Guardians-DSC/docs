@@ -5,15 +5,15 @@
 toc::[]
 
 == Introdução
-A página de documentação dos Guardians é um fork do projeto de link:https://github.com/openshift/openshift-docs[documentação do openshift].
-Esse documento é um guia de como contribuir para adicionar e/ou editar alguma informação dessa página. O projeto de documentação dos Guardians atualmente utiliza as seguintes tecnologias:
+A página de documentação do {product-title} é um fork do projeto de link:https://github.com/openshift/openshift-docs[documentação do openshift].
+Esse documento é um guia de como contribuir para adicionar e/ou editar alguma informação dessa página. O projeto atualmente utiliza as seguintes tecnologias:
 
 * link:https://docs.docker.com/[Docker]
 * https://docs.docker.com/compose/install/[Docker Compose]
 * link:http://asciidoctor.org/docs/asciidoc-writers-guide/[Asciidoctor]
 * link:http://www.asciibinder.org/latest/welcome/[Asciibinder]
 
-Após fazer o clone do projeto de documentação dos Guardians, acesse a pasta e execute o comando `docker-compose up --build`.
+Após fazer o clone do projeto de documentação do {product-title}, acesse a pasta e execute o comando `docker-compose up --build`.
 Será baixado as imagens docker necessárias para o projeto e o no final o *asciidoctor* irá aguardar a conexão do livereload.
 Após isso, abra seu navegador preferido com a link:http://livereload.com/extensions/[*extensão do liverreload*] instalado, acesse o endereço
 `http://localhost:8080/_preview/main/latest/welcome/` e ative o livereload para que quando um arquivo *.adoc* for modificado a página for atualizada automaticamente
@@ -27,12 +27,12 @@ image::contribua_02.png["Após ativar o LiveReload"]
 
 [NOTE]
 ====
-Agora que o clone do projeto e a conexão do LiveReload foi feito, você está pronto para contribuir com a documentação dos Guardians!
+Agora que o clone do projeto e a conexão do LiveReload foi feito, você está pronto para contribuir com a documentação do {product-title}!
 ====
 
 == Estrutura do projeto
 
-Cada diretório raiz do projeto de documentação dos Guardians pode conter uma coleção de tópicos raiz, e/ou os subdiretórios que
+Cada diretório raiz do projeto de documentação do {product-title}  pode conter uma coleção de tópicos raiz, e/ou os subdiretórios que
 está dentro do diretório será um segundo nível do tópico raiz. As exceções para essa regra são diretórios cujo nome  começam com um *underline*
 ( como _docker, _templates), essas páginas são utilizadas na configuração para montar as páginas de documentação.
 
@@ -86,3 +86,26 @@ basta escrever o que queira compartilhar que a página será carregada automatic
 a esquerda.
 
 == GitHub Pages
+
+Para cada build que o asciibinder realiza, ele converte os arquivos *.adoc modificados para .html* e coloca na pasta `_preview` (por padrão, esta página é adiciona no .gitignore).
+Caso você já tenha algum *servidor http* basta servir esta pasta que sua documentação estará acessível. Porém, caso queira hospedar sua documentação assim como {product-title} no GitHub Pages
+explicaremos qual foi a solução utilizada pelo grupo.
+
+[NOTE]
+====
+O asciibinder realiza a documentação a partir de um repositório git, utilizando as branchs do projeto para também versionar a documentação, por padrão é chamado a versão da branch master de latest,
+ mas pode ser facilmente alterado no arquivo `_ditro-map.yml`
+====
+
+=== Build.sh
+Na raiz do projeto existe um shell script chamado `build.sh` esse arquivo é responsável para pegar *todos* os documentos .adoc e converter para html utilizando o asciibinder do container
+e fazer as alterações necessárias para deixar a documentação da branch master na raiz da pasta `_build/main`.
+
+Após fazer isso, o script copia os arquivos de `_build/main` e adiciona na branch *gh-pages*. Desta maneira, basta realizar o commit e em seguida o push que as alterações feitas na documentação
+ estará acessivel na página do seu github pages.
+
+[WARNING]
+====
+*Antes* de executar o comando build, certifique-se que *todas as mudanças feitas na branch que você está foram commitadas*, caso contrário, não será possivel passar os arquivos para a branch
+gh-pages.
+====
