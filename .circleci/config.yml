@@ -51,7 +51,7 @@ jobs:
           name: Deploy GitHub Pages
           command: |
             set -x
-            git clone -b gh-pages https://github.com/victorhundo/docs.git /opt/gh-pages
+            git clone -b gh-pages https://github.com/Guardians-DSC/docs.git /opt/gh-pages
             cp -rf ./_build/main/* /opt/gh-pages/
             cd /opt/gh-pages && git add .
             git -c user.name='CircleCI' -c user.email='travis' commit -m 'UPDATE GitHub Pages'
