@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SITE_ROOT=$( echo "$(basename `git rev-parse --show-toplevel`)\/")
+SITE_ROOT=$( echo "$CIRCLE_PROJECT_REPONAME\/")
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -11,22 +11,8 @@ function replace {
   find main -name '*.css' -type f -exec sed -i "s/$1/$2/g" '{}' \;
 }
 
-
-if [ ! -d "./_build/main" ]; then
-  mkdir -p ./_build/main
-fi
-
-docker-compose down && docker-compose up --build -d > /dev/null
-#Wait Docker is Ready!
-docker logs -f docs-asciidoctor | while read line
-do
-    if echo $line | grep -q 'Guard is now watching'; then
-        echo 'Server Started'
-        LOG_PID=$(pgrep -f 'docker logs')
-        kill -9 $LOG_PID;
-    fi
-    echo $line
-done
+docker cp docs-asciidoctor:/docs/_preview .
+mkdir -p ./_build/main
 
 rm -rf ./_build/*
 cp -r ./_preview/main ./_build/
@@ -47,7 +33,6 @@ replace "_images" "imgs"
 cd - > /dev/null
 
 cp -r ./_build /tmp
-git checkout gh-pages 2> /dev/null
 if [ $? -eq 0 ]; then
     cp -rf /tmp/_build/main/* . && rm -rf /tmp/_build
     printf "${GREEN}BUILD DONE!\n${RESET_COLOR}"
