@@ -1,5 +1,5 @@
 [[welcome-index]]
-= {product-title} Documentação Teste de modificação {product-version}
+= {product-title} Documentação {product-version}
 {product-author}
 {product-version}
 :data-uri:
