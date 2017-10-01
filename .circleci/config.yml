@@ -33,29 +33,19 @@ jobs:
           name: Build container
           command: |
             set -x
-            docker-compose -f docker-circle.yaml up --build -d
-
-      - run:
-          name: Espere container está pronto
-          command: |
-            set -x
-            sleep 10
+            ./_ci/build.sh
 
       - run:
           name: Monte GitHub Pages
           command: |
             set -x
-            ./build.sh
+            ./_ci/build_gh-pages.sh
 
       - run:
           name: Deploy GitHub Pages
           command: |
             set -x
-            git clone -b gh-pages https://github.com/Guardians-DSC/docs.git /opt/gh-pages
-            cp -rf ./_build/main/* /opt/gh-pages/
-            cd /opt/gh-pages && git add .
-            git -c user.name='CircleCI' -c user.email='travis' commit -m 'UPDATE GitHub Pages'
-            git push
+            ./_ci/deploy.sh
 
       - store_artifacts:
           path: /tmp/test-results
