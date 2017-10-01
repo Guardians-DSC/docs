@@ -4,7 +4,7 @@ main:
   author: Victor Hugo <victorhundo@gmail.com>
   site: guardians
   site_name: Documentação
-  site_url: https://victorhundo.github.io/docs-guardians/
+  site_url: https://guardians-dsc.github.io/docs/
   branches:
     master:
       name: Latest
