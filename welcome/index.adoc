@@ -16,12 +16,6 @@ correção de falhas, desenvolvimento de novas aplicações, aquisição e disse
 sobre **Administração de Sistemas**.
 
 
-[IMPORTANT]
-====
-{product-title} {product-version} is community supported only.
-====
-
-
 [TIP]
 ====
 Use o menu da esquerda para navegar na documentação, o campo de busca na parte
