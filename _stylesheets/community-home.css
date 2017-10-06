@@ -9,6 +9,11 @@ a:hover {
   color: #fff;
 }
 
+a:active, a:focus, .btn:focus,.btn:active {
+    outline: none !important;
+    ie-dummy: expression(this.hideFocus=true);
+}
+
 /* Custom default button */
 .btn-default,
 .btn-default:hover,
