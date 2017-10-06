@@ -15,8 +15,8 @@ Esse documento é um guia de como contribuir para adicionar e/ou editar alguma i
 
 Após fazer o clone do projeto de documentação do {product-title}, acesse a pasta e execute o comando `docker-compose up --build`.
 Será baixado as imagens docker necessárias para o projeto e o no final o *asciidoctor* irá aguardar a conexão do livereload.
-Após isso, abra seu navegador preferido com a link:http://livereload.com/extensions/[*extensão do liverreload*] instalado, acesse o endereço
-`http://localhost:8080/_preview/main/latest/welcome/` e ative o livereload para que quando um arquivo *.adoc* for modificado a página for atualizada automaticamente
+Após isso, abra seu navegador preferido com a link:http://livereload.com/extensions/[*extensão do liverreload*] instalado, acesse o localhost na porta *8080*, navegue
+pelos caminhos `_preview` -> `main` -> `latest` -> `welcome` e ative o livereload para que quando um arquivo *.adoc* for modificado a página for atualizada automaticamente
 sem ter a necessidade de reiniciar os containers.
 
 .Asciidoctor esperando conexão do LiveReload
@@ -87,4 +87,4 @@ a esquerda.
 
 == GitHub Pages
 
-O build é feito pelo CircleCI. 
+O build é feito pelo CircleCI.
