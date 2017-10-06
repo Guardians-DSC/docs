@@ -1,7 +1,7 @@
-<ul class="nav nav-sidebar">
+<ul class="nav nav-sidebar" id="myUL">
   <%- navigation.each.with_index do |topic_group, groupidx| -%>
     <%- current_group = topic_group[:id] == group_id -%>
-    <li class="nav-header">
+    <li class="nav-header sarch" >
       <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup<%= groupidx %>">
         <span id="tgSpan<%= groupidx %>" class="fa <%= current_group ? 'fa-angle-down' : 'fa-angle-right' %>"></span><%= topic_group[:name] %>
       </a>
