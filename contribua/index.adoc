@@ -87,4 +87,18 @@ a esquerda.
 
 == GitHub Pages
 
-O build é feito pelo CircleCI.
+As páginas html que são geradas pelo asciibinder não estão adequadas para ser publicadas no GitHub Pages, dessa forma
+utilizamos a seguinte estratégia: Para cada *push* realizado na branch *master* será acionado uma série de etapas que serão
+executados pelo link:https://circleci.com/[CircleCI]. Essas etapas são:
+
+<1> Montar os containers desse projeto.
+<2> Montar as páginas html com asciibinder.
+<3> Executar scripts de reconfiguração de links e caminhos para ser compatíveis ao GitHub Pages nas páginas html e css.
+<4> Realizar push das páginas html modificadas na *branch gh-pages*.
+
+Assim, não será necessário se preocupar como e onde a documentação será hospedada, todo o trabalho deve ser feito pelo CircleCI
+e a hospedagem estará por conta do serviço do GitHub Pages, fazendo com que o *repositório do projeto que faz documentação, também a hospede*
+e, também, diminuindo camadas de aprendizagem para que mais pessoas possa contribuir na documentação!
+
+.Ciclo de contribuição
+image::contribua_03.png["Ciclo de contribuição"]
