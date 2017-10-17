@@ -23,3 +23,12 @@ Topics:
   - Name: Utilizando Git nos LCCs
     File: index
     Distros: main
+
+---
+Name: Docker
+Dir: docker
+Distros: main
+Topics:
+  - Name: Instalando Docker
+    File: index
+    Distros: main

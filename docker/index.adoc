@@ -1,0 +1,167 @@
+= Instalando Docker
+:toc: macro
+:toc-title:
+
+toc::[]
+
+== Introdução
+Este tutorial ensina como instalar o Docker. O Docker é uma plataforma de software que permite a criação, o teste e a implantação de aplicações rapidamente. Para saber mais sobre o Docker:
+
+* link:https://www.mundodocker.com.br/o-que-e-docker/[O que é Docker?]
+* link:https://imasters.com.br/infra/linux/baleias-na-nuvem-entenda-como-funciona-o-docker/?trace=1519021197&source=single/[Entendendo como o Docker funciona]
+
+== Instalação
+
+[NOTE]
+====
+Este tutorial ensina a instalar o Docker no Linux
+====
+
+=== Configurando o repositório
+
+1.Atualize o repositório de pacotes do Linux:
+----
+sudo apt-get update
+----
+
+2.Instale os pacotes necessários para o funcionamento do Docker:
+
+[NOTE]
+====
+Antes de continuar com a instalação, verifique qual distribuição Linux você está usando. Para isso, execute, como sudo, o comando:
+----
+cat /etc/*-release | grep PRETTY 
+----
+====
+
+* Se você usar Debian:
+
+** Se sua distribuição for Jessie or Stretch:
+----
+sudo apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common
+----
+
+** Se  sua distribuição for Wheezy:
+----
+sudo apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     python-software-properties
+----
+
+* Se você usar Ubuntu:
+----
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+----
+
+3.Adicione a chave GPG oficial do Docker
+
+* Se você usar Debian:
+----
+curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88
+----
+
+* Se você usar Ubuntu:
+----
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88
+----
+
+4.Configure o repositório do Docker
+
+* Se você usar Debian:
+
+** x86_64:
+----
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable"
+----
+
+** armhf:
+----
+echo "deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+     $(lsb_release -cs) stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list
+----
+
+
+* Se você usar Ubuntu:
+
+** x86_64:
+----
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+----
+
+** armhf:
+----
+sudo add-apt-repository \
+   "deb [arch=armhf] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+----
+
+=== Instalando o Docker
+
+1.Atualize o repositório de pacotes do Linux
+----
+sudo apt-get update
+----
+
+2.Instale a versão mais recente do Docker
+----
+sudo apt-get install docker-ce
+----
+
+3.Verifique se o Docker foi instalado corretamente, executando:
+
+* x86_64:
+----
+sudo docker run hello-world
+----
+
+* armhf:
+----
+sudo docker run armhf/hello-world
+----
+
+== Usando o Docker sem sudo
+Por padrão, o Docker só pode ser executado como root. Porém, é possível permitir que um usuário sem root possa utiliza-lo.
+
+1.Crie o grupo Docker:
+----
+sudo groupadd docker
+----
+
+2.Adicione o usuário que terá a permissão de usar o Docker sem sudo. Obs: substitua $USER pelo login do usuário.
+----
+sudo gpasswd -a $USER docker
+----
+
+3.Faça logout e depois login na conta cujas permissões foram dadas. Depois, para checar se as configurações tiveram êxito, execute:
+----
+docker run hello-world
+----
+
+
+
+
+
+
