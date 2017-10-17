@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Instalando Docker | Docker | Guardians-DSC Latest</title>
+  <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
+  <link href="../../docs/css/docs.css" rel="stylesheet" />
+  <link href="https://assets.openshift.net/content/subdomain/touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" type="image/png">
+  <link href="imgs/favicon32x32.png" rel="shortcut icon" type="image/png">
+  <!--[if IE]><link rel="shortcut icon" href="https://assets.openshift.net/content/subdomain/favicon.ico"><![endif]-->
+  <!-- or, set /favicon.ico for IE10 win -->
+  <!-- Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Instalando Docker">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Guardians-DSC/docs/gh-pages/imgs/facebook.png">
+  <meta property="og:description" content="Documentação Guardians-DSC">
+  <meta property="og:locale" content="pt_BR">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://assets.openshift.net/content/html5shiv.js" type="text/javascript"></script>
+    <script src="https://assets.openshift.net/content/respond.js" type="text/javascript"></script>
+    <link href="https://assets.openshift.net/content/vendor/respond-js/respond-proxy.html" id="respond-proxy" rel="respond-proxy">
+    <link href="../../docs/imgs/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
+    <script src="../../docs/js/respond.proxy.js" type="text/javascript"></script>
+  <![endif]-->
+  <script src="https://assets.openshift.net/content/modernizr.js" type="text/javascript"></script>
+  <script src="https://assets.openshift.net/content/subdomain.js" type="text/javascript"></script>
+  <script src="../../docs/js/bootstrap-offcanvas.js" type="text/javascript"></script>
+  <script src="../../docs/js/reformat-html.js" type="text/javascript"></script>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-openshift navbar-origin" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand origin" href="https://guardians-dsc.github.io/docs/"></a>
+  </div>
+</div>
+  <div class="container">
+    <p class="toggle-nav visible-xs pull-left">
+      <button class="btn btn-default btn-sm" type="button" data-toggle="offcanvas">Toggle nav</button>
+    </p>
+    <ol class="breadcrumb">
+      <li class="sitename">
+        <a href="https://guardians-dsc.github.io/docs/">Documentação</a>
+      </li>
+      <li class="hidden-xs active">
+        <a href="../welcome/index.html">Guardians-DSC Latest</a>
+      </li>
+      <li class="hidden-xs active">
+        <a href="../docker/index.html">Docker</a>
+      </li>
+      
+      <li class="hidden-xs active">
+        Instalando Docker
+      </li>
+    </ol>
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-xs-8 col-sm-3 col-md-3 sidebar sidebar-offcanvas">
+        <div class="row-fluid">
+          <script>
+function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByClassName('sarch');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+ <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Procure por tópicos">
+        </div>
+        <ul class="nav nav-sidebar" id="myUL">
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup0">
+        <span id="tgSpan0" class="fa fa-angle-right"></span>Sobre
+      </a>
+      <ul id="topicGroup0" class="collapse  list-unstyled">
+            <li><a class="" href="../welcome/index.html">Bem-Vindos</a></li>
+      </ul>
+    </li>
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup1">
+        <span id="tgSpan1" class="fa fa-angle-right"></span>Contribua
+      </a>
+      <ul id="topicGroup1" class="collapse  list-unstyled">
+            <li><a class="" href="../contribua/index.html">Contribua na documentação</a></li>
+      </ul>
+    </li>
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup2">
+        <span id="tgSpan2" class="fa fa-angle-right"></span>Git no LCC
+      </a>
+      <ul id="topicGroup2" class="collapse  list-unstyled">
+            <li><a class="" href="../git_lcc/index.html">Utilizando Git nos LCCs</a></li>
+      </ul>
+    </li>
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup3">
+        <span id="tgSpan3" class="fa fa-angle-down"></span>Docker
+      </a>
+      <ul id="topicGroup3" class="collapse in list-unstyled">
+            <li><a class=" active" href="../docker/index.html">Instalando Docker</a></li>
+      </ul>
+    </li>
+</ul>
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9 main">
+        <div class="page-header">
+          <h1>Instalando Docker</h1>
+        </div>
+        <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title"></div>
+<ul class="sectlevel1">
+<li><a href="#introdução">Introdução</a></li>
+<li><a href="#instalação">Instalação</a>
+<ul class="sectlevel2">
+<li><a href="#configurando-o-repositório">Configurando o repositório</a></li>
+<li><a href="#instalando-o-docker">Instalando o Docker</a></li>
+</ul>
+</li>
+<li><a href="#usando-o-docker-sem-sudo">Usando o Docker sem sudo</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introdução"><a class="anchor" href="#introdução"></a>Introdução</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Este tutorial ensina como instalar o Docker. O Docker é uma plataforma de software que permite a criação, o teste e a implantação de aplicações rapidamente. Para saber mais sobre o Docker:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.mundodocker.com.br/o-que-e-docker/">O que é Docker?</a></p>
+</li>
+<li>
+<p><a href="https://imasters.com.br/infra/linux/baleias-na-nuvem-entenda-como-funciona-o-docker/?trace=1519021197&amp;source=single/">Entendendo como o Docker funciona</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instalação"><a class="anchor" href="#instalação"></a>Instalação</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Este tutorial ensina a instalar o Docker no Linux</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="configurando-o-repositório"><a class="anchor" href="#configurando-o-repositório"></a>Configurando o repositório</h3>
+<div class="paragraph">
+<p>1.Atualize o repositório de pacotes do Linux:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get update</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>2.Instale os pacotes necessários para o funcionamento do Docker:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Antes de continuar com a instalação, verifique qual distribuição Linux você está usando. Para isso, execute, como sudo, o comando:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cat /etc/*-release | grep PRETTY</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se você usar Debian:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Se sua distribuição for Jessie or Stretch:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se  sua distribuição for Wheezy:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     python-software-properties</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se você usar Ubuntu:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>3.Adicione a chave GPG oficial do Docker</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se você usar Debian:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se você usar Ubuntu:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>4.Configure o repositório do Docker</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se você usar Debian:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>x86_64:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable"</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>armhf:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo "deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+     $(lsb_release -cs) stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se você usar Ubuntu:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>x86_64:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>armhf:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo add-apt-repository \
+   "deb [arch=armhf] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="instalando-o-docker"><a class="anchor" href="#instalando-o-docker"></a>Instalando o Docker</h3>
+<div class="paragraph">
+<p>1.Atualize o repositório de pacotes do Linux</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get update</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>2.Instale a versão mais recente do Docker</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install docker-ce</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>3.Verifique se o Docker foi instalado corretamente, executando:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>x86_64:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo docker run hello-world</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>armhf:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo docker run armhf/hello-world</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usando-o-docker-sem-sudo"><a class="anchor" href="#usando-o-docker-sem-sudo"></a>Usando o Docker sem sudo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Por padrão, o Docker só pode ser executado como root. Porém, é possível permitir que um usuário sem root possa utiliza-lo.</p>
+</div>
+<div class="paragraph">
+<p>1.Crie o grupo Docker:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo groupadd docker</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>2.Adicione o usuário que terá a permissão de usar o Docker sem sudo. Obs: substitua $USER pelo login do usuário.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo gpasswd -a $USER docker</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>3.Faça logout e depois login na conta cujas permissões foram dadas. Depois, para checar se as configurações tiveram êxito, execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>docker run hello-world</pre>
+</div>
+</div>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    /*<![CDATA[*/
+    $(document).ready(function() {
+      $("[id^='topicGroup']").on('show.bs.collapse', function (event) {
+        if (!($(event.target).attr('id').match(/^topicSubGroup/))) {
+          $(this).parent().find("[id^='tgSpan']").toggleClass("fa-angle-right fa-angle-down");
+        }
+      });
+      $("[id^='topicGroup']").on('hide.bs.collapse', function (event) {
+        if (!($(event.target).attr('id').match(/^topicSubGroup/))) {
+          $(this).parent().find("[id^='tgSpan']").toggleClass("fa-angle-right fa-angle-down");
+        }
+      });
+      $("[id^='topicSubGroup']").on('show.bs.collapse', function () {
+        $(this).parent().find("[id^='sgSpan']").toggleClass("fa-caret-right fa-caret-down");
+      });
+      $("[id^='topicSubGroup']").on('hide.bs.collapse', function () {
+        $(this).parent().find("[id^='sgSpan']").toggleClass("fa-caret-right fa-caret-down");
+      });
+    });
+    /*]]>*/
+  </script>
+    <footer class="footer-origin-docs"></footer>
+</body>
+</html>
