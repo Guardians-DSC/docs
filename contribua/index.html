@@ -11,7 +11,6 @@
   <title>Contribua na documentação | Contribua | Guardians-DSC Latest</title>
   <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
   <link href="../../docs/css/docs.css" rel="stylesheet" />
-  <link href="https://assets.openshift.net/content/subdomain/touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" type="image/png">
   <link href="imgs/favicon32x32.png" rel="shortcut icon" type="image/png">
   <!--[if IE]><link rel="shortcut icon" href="https://assets.openshift.net/content/subdomain/favicon.ico"><![endif]-->
   <!-- or, set /favicon.ico for IE10 win -->
@@ -40,6 +39,8 @@
     <a class="navbar-brand origin" href="https://guardians-dsc.github.io/docs/"></a>
   </div>
 </div>
+
+
   <div class="container">
     <p class="toggle-nav visible-xs pull-left">
       <button class="btn btn-default btn-sm" type="button" data-toggle="offcanvas">Toggle nav</button>
@@ -130,6 +131,7 @@ function myFunction() {
       <div class="col-xs-12 col-sm-9 col-md-9 main">
         <div class="page-header">
           <h1>Contribua com a página de documentação dos Guardians</h1>
+
         </div>
         <div id="preamble">
 <div class="sectionbody">
@@ -326,6 +328,9 @@ e, também, diminuindo camadas de aprendizagem para que mais pessoas possa contr
 </div>
 </div>
 </div>
+
+        <h4> Esse documento  existe graças à contribuição de:</h4>
+        <div id="contribuidores"></div>
       </div>
     </div>
   </div>
@@ -348,6 +353,25 @@ e, também, diminuindo camadas de aprendizagem para que mais pessoas possa contr
       $("[id^='topicSubGroup']").on('hide.bs.collapse', function () {
         $(this).parent().find("[id^='sgSpan']").toggleClass("fa-caret-right fa-caret-down");
       });
+
+      // Script para pegar github de quem contribuiu para um documento específico
+     var url = "https://api.github.com/repos/guardians-dsc/docs/commits?path=/contribua/index.html";
+      url = url.replace("html", "adoc");
+      var unique = [];
+      $.getJSON(url, function(data) {
+          var twitterList = $("<ul />");
+          $.each(data, function(index, item) {
+              if(item.author && unique.indexOf(item.author.html_url) == -1) {
+                  $("<li />", {
+                      "text": item.author.html_url
+                  }).appendTo(twitterList);
+                  unique.push(item.author.html_url)
+              }
+          });
+
+          $("#contribuidores").fadeOut("fast", function() {$(this).empty().append(twitterList).fadeIn(1000);});
+      })
+
     });
     /*]]>*/
   </script>
