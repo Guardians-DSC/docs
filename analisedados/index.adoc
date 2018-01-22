@@ -1,0 +1,264 @@
+= Guia Rápido de Introdução ao R
+:toc: macro
+:toc-title:
+
+toc::[]
+
+Amanda Luna - amanda.costa@ccc.ufcg.edu.br / Lívia Cavalcanti - livia.juliao@ccc.ufcg.edu.br
+
+== O que é R?
+É um software livre para gráficos e computação estatística. Usa command-line scripting, podendo armazenar uma série de passos de análise de dados complexos, e que possibilita reuso do seu trabalho de análise.
+
+== Instalando R e RStudio
+Para instalar o R e o RStudio, basta seguir http://leg.ufpr.br/~fernandomayer/aulas/ce083-2016-2/R-instalacao.html[este] este guia da UFPR
+
+== Tipos de dados
+R é uma linguagem fracamente tipada e nela existem 5 tipos de dados: integer, numeric,character,logical e factor.
+
+* *Integer* é o tipo de dado em que se armazena números inteiros;
+
+* *Numeric* é onde se armazena valores numéricos de precisão (o famoso float);
+
+* *Character* é onde se armazena strings e caracteres;
+
+* *Logical* são para representação de valores booleanos;
+
+* *Factor* são usados para representar categorias.
+
+Para guardar valores em uma variável no R, utilizamos *< -*, com a seta apontando para o nome da variável.
+----
+var1 <- "Guardians"
+var2 <- 3
+----
+
+Para verificar a classe de uma determinada variável, é usada a função _class()_ e para realizar comentários no código é utilizada a cerquilha.
+----
+class(3) # Retornará numeric
+class("abc") # Retornará character
+----
+
+Importante: variáveis com números inteiros não são iniciados com o tipo integer, e sim com o tipo numeric ! Para que a variável seja inicializada já com o tipo integer, deve-se fazer:
+
+----
+inteiro <- 3L # Este L serve para mostrar para o R que este é um número do tipo inteiro
+----
+
+E para conversão de dados, utilizam-se as funções _as.tipododado()_.
+----
+as.integer(3.0)
+as.character(4)
+as.integer("oi") # Não pode ser feito, retornará um erro.
+----
+
+Curiosidade: ao tentar realizar a operação as.logical(3) a função retornará true, assim como com outros números, porém se for feita a operação as.logical(0), a função retornará false.
+
+== Operações Básicas
+Estas são algumas das operações básicas que se tem no R:
+
+* Soma: *+*
+
+* Subtração: *-*
+
+* Divisão: */*
+
+* Potenciação: *^*
+
+* Multiplicação: *
+
+* Raiz Quadrada: _sqrt()_
+
+* Desvio Padrão: _sd()_
+
+* Passar um data frame para uma função: *%>%*
+
+== Estruturas de Dados
+
+* Vetores: vetores são uma sequência simples de elementos do mesmo tipo. Quando definimos uma variável, é criado um vetor de um elemento.
+----
+var1 <- 3
+is.vector(var1) # Retornará true
+----
+
+Para criarmos vetores com mais de um elemento, colocaremos os valores desejados dentro de um _c()_
+
+----
+var1 <- c(1,2,3,4)
+----
+
+Obs. Caso você tente misturar os tipos, o R forçará que todos os elementos sejam do mesmo tipo
+----
+var <- c(1,2,3,4,"batata")
+# Se você for visualizar a variável, o R terá convertido tudo para character
+#[1] "1"      "2”      "3”      "4"      "batata"
+----
+
+* Matrizes: correspondem às matrizes matemáticas, com linhas e colunas. Semelhante aos vetores, só podem ser de um tipo de dado.
+
+----
+mat <- matrix(c(1,2,3,4,5,6),nrow=3,ncol=2,byrow=TRUE)
+----
+
+Com esta linha de código acima, é possível criar uma matriz de 3 linhas e		duas colunas, organizadas por linha e contendo números de 1 a 6.
+
+----
+var1 <- c(1,2,3)
+var2 <- c(4,5,6)
+mat <- rbind(var1,var2)
+----
+
+Com esta outra linha também é possível criar uma matriz, só que diferente da 	implementação anterior, estamos combinando dois vetores por linhas.
+Obs. Não é possível combinar vetores de tamanhos diferentes e na primeira 	implementação, não é possível definir um números de linhas e colunas que 	não sejam múltiplos do tamanho do vetor passado no parâmetro.
+Para acessar elementos em uma matriz, deve-se utilizar colchetes,informando primeiro a linha e depois a coluna.
+
+----
+m[1,2]
+----
+
+* Listas: são um tipo especial de vetores, no qual pode-se colocar elementos de tipos diferentes, incluindo os próprios vetores.
+
+----
+lista <- list(c(1,2,3,4),c(T,F),c("Guardians",">","Pet"))
+----
+
+Pode-se acessar um pedaço da lista indicando o índice dele
+----
+lista[1] # Irá retornar o pedaço da lista contendo o primeiro vetor
+----
+
+Para acessar o elemento em si, deve-se acessar utilizando colchetes duplos
+----
+lista[[1]] # Retorna o primeiro elemento da lista em si
+----
+
+Para acessar um elemento dentro de um vetor contido na lista, deve-se usar 	colchetes duplos (para sinalizar qual o vetor desejado) seguido do índice do 	elemento procurado,também entre colchetes.
+----
+lista[[1]][2] # Retorna o segundo elemento do primeiro vetor da lista
+----
+
+Por último, nas listas é possível referenciar os elementos por nomes ao invés	 dos índices.
+----
+lista <- list(coiso1 = c(1,2,3), coiso2 = c(T,F,T))
+lista["coiso1"] # Retorna pedaço da lista que contém o vetor coiso1
+----
+
+Ou ainda referenciar utilizando o *$*
+----
+lista$coiso2 # Retornará o elemento referente ao vetor coiso2
+----
+
+Porém, mesmo nomeando os itens, ainda é possível acessá-los pelos índices	normalmente.
+
+* Data Frames: é a estrutura do R utilizada para armazenar dados em forma de tabela, organizados por linha e colunas. _(Agora que vai ficar legal)_
+
+Para criar um data frame, é necessário utilizar a função _data.frame_.
+----
+df <- data.frame(c(1,2,3),c(T,F,T))
+----
+
+Percebeu que os nomes das colunas ficaram estranhos? Para dar nomes às 	colunas do data frame pode-se usar a função _names()_.
+----
+names(df) <- c("numeric","logical")
+----
+
+O R possui nativo vários data frames, que possuem como maior finalidade aprendizado e realização de testes, entre eles o há o *mtcars*.
+----
+data(mtcars) # Carrega o data frame
+mtcars # Printa o df
+names(mtcars) # Printa os nomes das colunas
+str(mtcars) # Nos retorna a estrutura do df
+head(mtcars) # Retorna os primeiros elementos
+tail(mtcars) # Retorna os últimos elementos
+mtcars$mpg # Retorna apenas os valores da coluna mpg
+mean(mtcars$mpg) # Retorna a média dos valores desta coluna
+summary(mtcars) # Retorna a média,mediana,máximos,mínimos e quartis
+----
+
+Para selecionar dados no data frame também é utilizado colchetes, informando a linha e a coluna referente ao que é procurado. Pode-se selecionar também utilizando os nomes.
+----
+mtcars[1,2]
+mtcars["Lotus Europa","gear"]
+mtcars["Mazda RX4",2]
+----
+
+== Instalação de Pacotes
+O R, por ser open source, possui milhares de pacotes com diferentes funções. Para instalar um pacote, basta utilizar o comando _install.packages("nome do pacote")_.
+----
+install.packages("swirl")
+----
+
+Para carregar um pacote, deve-se utilizar o comando _library(pacote)_
+----
+library(swirl)
+----
+
+Importante: como R é uma linguagem de linha de comando, sempre que você for precisar de um pacote para sua implementação, deve utilizar o _library()_ com o pacote que você deseja, do contrário, não poderá acessar as funções da biblioteca. O mesmo acontece com tudo que já foi implementado no R script.
+Uma boa prática de programação é declarar todos os pacotes utilizados em cada arquivo .R logo nas primeiras linhas do código.
+
+Sugestão: execute os comandos acima, depois digite _swirl()_ no console e veja a magia acontecer.
+
+== Bibliotecas Importantes
+
+Em análise de dados, as bibliotecas _dplyr_ e _ggplot2_ são indispensáveis. Para instalá-las, execute os seguintes comandos:
+----
+install.packages(dplyr)
+install.packages(ggplot2)
+----
+
+O _dplyr_ é uma biblioteca de manipulação de dados, com ela você pode realizar várias operações de manipulação, tais como: filtrar dados, sumarizar, selecionar,agrupar, entre outras coisas, já o _ggplot2_ é para visualização de dados, com ele pode-se montar vários tipos de gráficos com facilidade.
+O _dplyr_ possui alguns comandos básicos, tais como:
+----
+select()
+filter()
+mutate()
+group_by()
+summarise()
+----
+
+*I) Operador %>%*
+
+Este operador encadeia as funções de modo que o programador   não   precise ficar chamando uma função dentro da outra como em outras linguagens, tal como _dados.getCarros()_.
+Neste caso, o operador cria um fluxo sequencial de operações, tal que a chamada anterior irá gerar um resultado que será utilizado na operação seguinte.
+----
+mtcars %>% select(c("mpg","cyl")) %>% filter(cyl > 4)
+----
+
+Nesta linha, temos que o data frame *mtcars* será manipulado, e que nele serão feitas duas operações, uma seleção e uma filtragem. Na função *select* iremos selecionar apenas as colunas *mpg* e *cyl* e na função _filter_, filtramos os dados que possuam *cyl > 4*.
+
+*II) Select*
+
+A função _select_ é utilizada para selecionar colunas em um data frame, por exemplo, se no data frame *mtcars*, quisermos apenas as colunas *gear* e *carb*, faremos:
+----
+mtcars %>% select(c("gear","carb"))
+----
+
+Caso o objetivo seja excluir uma coluna do data frame, por exemplo a coluna *gear*, basta fazer
+----
+mtcars %>% select(-gear)
+----
+
+*III) Filter*
+
+A função _filter_ é utilizada para filtrar as linhas que o programador deseja, por exemplo, caso o programador queira apenas os carros cujo *cyl* é maior do que 4, faríamos:
+----
+mtcars %>% filter(cyl > 4)
+----
+
+*IV) Mutate*
+
+O _mutate_ é uma função usada para criar novas colunas no data frame que você está manipulando, caso quiséssemos adicionar uma nova coluna que seja o resultado da divisão entre *mpg* e *cyl*, faríamos:
+----
+mtcars <- mtcars %>% mutate(coluna = mpg/cyl)
+----
+
+*V) Group by e Summarise*
+
+O _group_by_ separa seus dados nos grupos que você selecionar, o _summarise_ faz operações de agregação de linhas limitadas a esse grupo, por exemplo, se quiséssemos agrupar os dados por *mpg* e agregar a soma destes mesmos *mpg*, faríamos:
+----
+mtcars <- mtcars %>% group_by(mpg) %>% summarise(somas = sum(mpg))
+----
+
+Para aprender a utilizar o _ggplot2_ , eu recomendo utilizar o cheat sheet do RStudio, ele possui exemplos dos mais diversos gráficos.
+
+O cheat sheet pode ser encontrado https://www.rstudio.com/resources/cheatsheets/[aqui], porém o site do RStudio possui vários outros que facilitam o aprendizado,incluindo _dplyr_.
+
+Também tem alguns exemplos simples no https://github.com/avdLuna/R-Examples[github].

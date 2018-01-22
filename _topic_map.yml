@@ -34,10 +34,10 @@ Topics:
     Distros: main
 
 ---
-Name: Sergio
-Dir: sergiosd
+Name: Análise de Dados
+Dir: analisedados
 Distros: main
 Topics:
-  - Name: To entendendo
+  - Name: Guia Rápido de Introdução ao R
     File: index
     Distros: main
