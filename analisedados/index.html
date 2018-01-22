@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Guia Rápido de Introdução ao R | Análise de Dados | Guardians-DSC Latest</title>
+  <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
+  <link href="../../docs/css/docs.css" rel="stylesheet" />
+  <link href="imgs/favicon32x32.png" rel="shortcut icon" type="image/png">
+  <!--[if IE]><link rel="shortcut icon" href="https://assets.openshift.net/content/subdomain/favicon.ico"><![endif]-->
+  <!-- or, set /favicon.ico for IE10 win -->
+  <!-- Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Guia Rápido de Introdução ao R">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Guardians-DSC/docs/gh-pages/imgs/facebook.png">
+  <meta property="og:description" content="Documentação Guardians-DSC">
+  <meta property="og:locale" content="pt_BR">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://assets.openshift.net/content/html5shiv.js" type="text/javascript"></script>
+    <script src="https://assets.openshift.net/content/respond.js" type="text/javascript"></script>
+    <link href="https://assets.openshift.net/content/vendor/respond-js/respond-proxy.html" id="respond-proxy" rel="respond-proxy">
+    <link href="../../docs/imgs/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
+    <script src="../../docs/js/respond.proxy.js" type="text/javascript"></script>
+  <![endif]-->
+  <script src="https://assets.openshift.net/content/modernizr.js" type="text/javascript"></script>
+  <script src="https://assets.openshift.net/content/subdomain.js" type="text/javascript"></script>
+  <script src="../../docs/js/bootstrap-offcanvas.js" type="text/javascript"></script>
+  <script src="../../docs/js/reformat-html.js" type="text/javascript"></script>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-openshift navbar-origin" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand origin" href="https://guardians-dsc.github.io/docs/"></a>
+  </div>
+</div>
+
+
+  <div class="container">
+    <p class="toggle-nav visible-xs pull-left">
+      <button class="btn btn-default btn-sm" type="button" data-toggle="offcanvas">Toggle nav</button>
+    </p>
+    <ol class="breadcrumb">
+      <li class="sitename">
+        <a href="https://guardians-dsc.github.io/docs/">Documentação</a>
+      </li>
+      <li class="hidden-xs active">
+        <a href="../welcome/index.html">Guardians-DSC Latest</a>
+      </li>
+      <li class="hidden-xs active">
+        <a href="../analisedados/index.html">Análise de Dados</a>
+      </li>
+      
+      <li class="hidden-xs active">
+        Guia Rápido de Introdução ao R
+      </li>
+    </ol>
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-xs-8 col-sm-3 col-md-3 sidebar sidebar-offcanvas">
+        <div class="row-fluid">
+          <script>
+function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByClassName('sarch');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+ <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Procure por tópicos">
+        </div>
+        <ul class="nav nav-sidebar" id="myUL">
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup0">
+        <span id="tgSpan0" class="fa fa-angle-right"></span>Sobre
+      </a>
+      <ul id="topicGroup0" class="collapse  list-unstyled">
+            <li><a class="" href="../welcome/index.html">Bem-Vindos</a></li>
+      </ul>
+    </li>
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup1">
+        <span id="tgSpan1" class="fa fa-angle-right"></span>Contribua
+      </a>
+      <ul id="topicGroup1" class="collapse  list-unstyled">
+            <li><a class="" href="../contribua/index.html">Contribua na documentação</a></li>
+      </ul>
+    </li>
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup2">
+        <span id="tgSpan2" class="fa fa-angle-right"></span>Git no LCC
+      </a>
+      <ul id="topicGroup2" class="collapse  list-unstyled">
+            <li><a class="" href="../git_lcc/index.html">Utilizando Git nos LCCs</a></li>
+      </ul>
+    </li>
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup3">
+        <span id="tgSpan3" class="fa fa-angle-right"></span>Docker
+      </a>
+      <ul id="topicGroup3" class="collapse  list-unstyled">
+            <li><a class="" href="../docker/index.html">Instalando Docker</a></li>
+      </ul>
+    </li>
+    <li class="nav-header sarch" >
+      <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup4">
+        <span id="tgSpan4" class="fa fa-angle-down"></span>Análise de Dados
+      </a>
+      <ul id="topicGroup4" class="collapse in list-unstyled">
+            <li><a class=" active" href="../analisedados/index.html">Guia Rápido de Introdução ao R</a></li>
+      </ul>
+    </li>
+</ul>
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9 main">
+        <div class="page-header">
+          <h1>Guia Rápido de Introdução ao R</h1>
+
+        </div>
+        <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title"></div>
+<ul class="sectlevel1">
+<li><a href="#o-que-é-r">O que é R?</a></li>
+<li><a href="#instalando-r-e-rstudio">Instalando R e RStudio</a></li>
+<li><a href="#tipos-de-dados">Tipos de dados</a></li>
+<li><a href="#operações-básicas">Operações Básicas</a></li>
+<li><a href="#estruturas-de-dados">Estruturas de Dados</a></li>
+<li><a href="#instalação-de-pacotes">Instalação de Pacotes</a></li>
+<li><a href="#bibliotecas-importantes">Bibliotecas Importantes</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Amanda Luna - <a href="mailto:amanda.costa@ccc.ufcg.edu.br">amanda.costa@ccc.ufcg.edu.br</a> / Lívia Cavalcanti - <a href="mailto:livia.juliao@ccc.ufcg.edu.br">livia.juliao@ccc.ufcg.edu.br</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="o-que-é-r"><a class="anchor" href="#o-que-é-r"></a>O que é R?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>É um software livre para gráficos e computação estatística. Usa command-line scripting, podendo armazenar uma série de passos de análise de dados complexos, e que possibilita reuso do seu trabalho de análise.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instalando-r-e-rstudio"><a class="anchor" href="#instalando-r-e-rstudio"></a>Instalando R e RStudio</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para instalar o R e o RStudio, basta seguir <a href="http://leg.ufpr.br/~fernandomayer/aulas/ce083-2016-2/R-instalacao.html">este</a> este guia da UFPR</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tipos-de-dados"><a class="anchor" href="#tipos-de-dados"></a>Tipos de dados</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>R é uma linguagem fracamente tipada e nela existem 5 tipos de dados: integer, numeric,character,logical e factor.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Integer</strong> é o tipo de dado em que se armazena números inteiros;</p>
+</li>
+<li>
+<p><strong>Numeric</strong> é onde se armazena valores numéricos de precisão (o famoso float);</p>
+</li>
+<li>
+<p><strong>Character</strong> é onde se armazena strings e caracteres;</p>
+</li>
+<li>
+<p><strong>Logical</strong> são para representação de valores booleanos;</p>
+</li>
+<li>
+<p><strong>Factor</strong> são usados para representar categorias.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Para guardar valores em uma variável no R, utilizamos <strong>&lt; -</strong>, com a seta apontando para o nome da variável.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>var1 &lt;- "Guardians"
+var2 &lt;- 3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para verificar a classe de uma determinada variável, é usada a função <em>class()</em> e para realizar comentários no código é utilizada a cerquilha.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>class(3) # Retornará numeric
+class("abc") # Retornará character</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Importante: variáveis com números inteiros não são iniciados com o tipo integer, e sim com o tipo numeric ! Para que a variável seja inicializada já com o tipo integer, deve-se fazer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>inteiro &lt;- 3L # Este L serve para mostrar para o R que este é um número do tipo inteiro</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>E para conversão de dados, utilizam-se as funções <em>as.tipododado()</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>as.integer(3.0)
+as.character(4)
+as.integer("oi") # Não pode ser feito, retornará um erro.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Curiosidade: ao tentar realizar a operação as.logical(3) a função retornará true, assim como com outros números, porém se for feita a operação as.logical(0), a função retornará false.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="operações-básicas"><a class="anchor" href="#operações-básicas"></a>Operações Básicas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Estas são algumas das operações básicas que se tem no R:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Soma: <strong>+</strong></p>
+</li>
+<li>
+<p>Subtração: <strong>-</strong></p>
+</li>
+<li>
+<p>Divisão: <strong>/</strong></p>
+</li>
+<li>
+<p>Potenciação: <strong>^</strong></p>
+</li>
+<li>
+<p>Multiplicação: *</p>
+</li>
+<li>
+<p>Raiz Quadrada: <em>sqrt()</em></p>
+</li>
+<li>
+<p>Desvio Padrão: <em>sd()</em></p>
+</li>
+<li>
+<p>Passar um data frame para uma função: <strong>%&gt;%</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="estruturas-de-dados"><a class="anchor" href="#estruturas-de-dados"></a>Estruturas de Dados</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Vetores: vetores são uma sequência simples de elementos do mesmo tipo. Quando definimos uma variável, é criado um vetor de um elemento.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>var1 &lt;- 3
+is.vector(var1) # Retornará true</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para criarmos vetores com mais de um elemento, colocaremos os valores desejados dentro de um <em>c()</em></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>var1 &lt;- c(1,2,3,4)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Obs. Caso você tente misturar os tipos, o R forçará que todos os elementos sejam do mesmo tipo</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>var &lt;- c(1,2,3,4,"batata")
+# Se você for visualizar a variável, o R terá convertido tudo para character
+#[1] "1"      "2”      "3”      "4"      "batata"</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Matrizes: correspondem às matrizes matemáticas, com linhas e colunas. Semelhante aos vetores, só podem ser de um tipo de dado.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mat &lt;- matrix(c(1,2,3,4,5,6),nrow=3,ncol=2,byrow=TRUE)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Com esta linha de código acima, é possível criar uma matriz de 3 linhas e		duas colunas, organizadas por linha e contendo números de 1 a 6.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>var1 &lt;- c(1,2,3)
+var2 &lt;- c(4,5,6)
+mat &lt;- rbind(var1,var2)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Com esta outra linha também é possível criar uma matriz, só que diferente da 	implementação anterior, estamos combinando dois vetores por linhas.
+Obs. Não é possível combinar vetores de tamanhos diferentes e na primeira 	implementação, não é possível definir um números de linhas e colunas que 	não sejam múltiplos do tamanho do vetor passado no parâmetro.
+Para acessar elementos em uma matriz, deve-se utilizar colchetes,informando primeiro a linha e depois a coluna.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>m[1,2]</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Listas: são um tipo especial de vetores, no qual pode-se colocar elementos de tipos diferentes, incluindo os próprios vetores.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>lista &lt;- list(c(1,2,3,4),c(T,F),c("Guardians","&gt;","Pet"))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pode-se acessar um pedaço da lista indicando o índice dele</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>lista[1] # Irá retornar o pedaço da lista contendo o primeiro vetor</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para acessar o elemento em si, deve-se acessar utilizando colchetes duplos</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>lista[[1]] # Retorna o primeiro elemento da lista em si</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para acessar um elemento dentro de um vetor contido na lista, deve-se usar 	colchetes duplos (para sinalizar qual o vetor desejado) seguido do índice do 	elemento procurado,também entre colchetes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>lista[[1]][2] # Retorna o segundo elemento do primeiro vetor da lista</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Por último, nas listas é possível referenciar os elementos por nomes ao invés	 dos índices.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>lista &lt;- list(coiso1 = c(1,2,3), coiso2 = c(T,F,T))
+lista["coiso1"] # Retorna pedaço da lista que contém o vetor coiso1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ou ainda referenciar utilizando o <strong>$</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>lista$coiso2 # Retornará o elemento referente ao vetor coiso2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Porém, mesmo nomeando os itens, ainda é possível acessá-los pelos índices	normalmente.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data Frames: é a estrutura do R utilizada para armazenar dados em forma de tabela, organizados por linha e colunas. <em>(Agora que vai ficar legal)</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Para criar um data frame, é necessário utilizar a função <em>data.frame</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>df &lt;- data.frame(c(1,2,3),c(T,F,T))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Percebeu que os nomes das colunas ficaram estranhos? Para dar nomes às 	colunas do data frame pode-se usar a função <em>names()</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>names(df) &lt;- c("numeric","logical")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O R possui nativo vários data frames, que possuem como maior finalidade aprendizado e realização de testes, entre eles o há o <strong>mtcars</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>data(mtcars) # Carrega o data frame
+mtcars # Printa o df
+names(mtcars) # Printa os nomes das colunas
+str(mtcars) # Nos retorna a estrutura do df
+head(mtcars) # Retorna os primeiros elementos
+tail(mtcars) # Retorna os últimos elementos
+mtcars$mpg # Retorna apenas os valores da coluna mpg
+mean(mtcars$mpg) # Retorna a média dos valores desta coluna
+summary(mtcars) # Retorna a média,mediana,máximos,mínimos e quartis</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para selecionar dados no data frame também é utilizado colchetes, informando a linha e a coluna referente ao que é procurado. Pode-se selecionar também utilizando os nomes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mtcars[1,2]
+mtcars["Lotus Europa","gear"]
+mtcars["Mazda RX4",2]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instalação-de-pacotes"><a class="anchor" href="#instalação-de-pacotes"></a>Instalação de Pacotes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O R, por ser open source, possui milhares de pacotes com diferentes funções. Para instalar um pacote, basta utilizar o comando <em>install.packages("nome do pacote")</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>install.packages("swirl")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para carregar um pacote, deve-se utilizar o comando <em>library(pacote)</em></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>library(swirl)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Importante: como R é uma linguagem de linha de comando, sempre que você for precisar de um pacote para sua implementação, deve utilizar o <em>library()</em> com o pacote que você deseja, do contrário, não poderá acessar as funções da biblioteca. O mesmo acontece com tudo que já foi implementado no R script.
+Uma boa prática de programação é declarar todos os pacotes utilizados em cada arquivo .R logo nas primeiras linhas do código.</p>
+</div>
+<div class="paragraph">
+<p>Sugestão: execute os comandos acima, depois digite <em>swirl()</em> no console e veja a magia acontecer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bibliotecas-importantes"><a class="anchor" href="#bibliotecas-importantes"></a>Bibliotecas Importantes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Em análise de dados, as bibliotecas <em>dplyr</em> e <em>ggplot2</em> são indispensáveis. Para instalá-las, execute os seguintes comandos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>install.packages(dplyr)
+install.packages(ggplot2)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O <em>dplyr</em> é uma biblioteca de manipulação de dados, com ela você pode realizar várias operações de manipulação, tais como: filtrar dados, sumarizar, selecionar,agrupar, entre outras coisas, já o <em>ggplot2</em> é para visualização de dados, com ele pode-se montar vários tipos de gráficos com facilidade.
+O <em>dplyr</em> possui alguns comandos básicos, tais como:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>select()
+filter()
+mutate()
+group_by()
+summarise()</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>I) Operador %&gt;%</strong></p>
+</div>
+<div class="paragraph">
+<p>Este operador encadeia as funções de modo que o programador   não   precise ficar chamando uma função dentro da outra como em outras linguagens, tal como <em>dados.getCarros()</em>.
+Neste caso, o operador cria um fluxo sequencial de operações, tal que a chamada anterior irá gerar um resultado que será utilizado na operação seguinte.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mtcars %&gt;% select(c("mpg","cyl")) %&gt;% filter(cyl &gt; 4)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nesta linha, temos que o data frame <strong>mtcars</strong> será manipulado, e que nele serão feitas duas operações, uma seleção e uma filtragem. Na função <strong>select</strong> iremos selecionar apenas as colunas <strong>mpg</strong> e <strong>cyl</strong> e na função <em>filter</em>, filtramos os dados que possuam <strong>cyl &gt; 4</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>II) Select</strong></p>
+</div>
+<div class="paragraph">
+<p>A função <em>select</em> é utilizada para selecionar colunas em um data frame, por exemplo, se no data frame <strong>mtcars</strong>, quisermos apenas as colunas <strong>gear</strong> e <strong>carb</strong>, faremos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mtcars %&gt;% select(c("gear","carb"))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Caso o objetivo seja excluir uma coluna do data frame, por exemplo a coluna <strong>gear</strong>, basta fazer</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mtcars %&gt;% select(-gear)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>III) Filter</strong></p>
+</div>
+<div class="paragraph">
+<p>A função <em>filter</em> é utilizada para filtrar as linhas que o programador deseja, por exemplo, caso o programador queira apenas os carros cujo <strong>cyl</strong> é maior do que 4, faríamos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mtcars %&gt;% filter(cyl &gt; 4)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>IV) Mutate</strong></p>
+</div>
+<div class="paragraph">
+<p>O <em>mutate</em> é uma função usada para criar novas colunas no data frame que você está manipulando, caso quiséssemos adicionar uma nova coluna que seja o resultado da divisão entre <strong>mpg</strong> e <strong>cyl</strong>, faríamos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mtcars &lt;- mtcars %&gt;% mutate(coluna = mpg/cyl)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>V) Group by e Summarise</strong></p>
+</div>
+<div class="paragraph">
+<p>O <em>group_by</em> separa seus dados nos grupos que você selecionar, o <em>summarise</em> faz operações de agregação de linhas limitadas a esse grupo, por exemplo, se quiséssemos agrupar os dados por <strong>mpg</strong> e agregar a soma destes mesmos <strong>mpg</strong>, faríamos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mtcars &lt;- mtcars %&gt;% group_by(mpg) %&gt;% summarise(somas = sum(mpg))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para aprender a utilizar o <em>ggplot2</em> , eu recomendo utilizar o cheat sheet do RStudio, ele possui exemplos dos mais diversos gráficos.</p>
+</div>
+<div class="paragraph">
+<p>O cheat sheet pode ser encontrado <a href="https://www.rstudio.com/resources/cheatsheets/">aqui</a>, porém o site do RStudio possui vários outros que facilitam o aprendizado,incluindo <em>dplyr</em>.</p>
+</div>
+<div class="paragraph">
+<p>Também tem alguns exemplos simples no <a href="https://github.com/avdLuna/R-Examples">github</a>.</p>
+</div>
+</div>
+</div>
+
+        <h4> Esse documento  existe graças à contribuição de:</h4>
+        <div id="contribuidores"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    /*<![CDATA[*/
+    $(document).ready(function() {
+      $("[id^='topicGroup']").on('show.bs.collapse', function (event) {
+        if (!($(event.target).attr('id').match(/^topicSubGroup/))) {
+          $(this).parent().find("[id^='tgSpan']").toggleClass("fa-angle-right fa-angle-down");
+        }
+      });
+      $("[id^='topicGroup']").on('hide.bs.collapse', function (event) {
+        if (!($(event.target).attr('id').match(/^topicSubGroup/))) {
+          $(this).parent().find("[id^='tgSpan']").toggleClass("fa-angle-right fa-angle-down");
+        }
+      });
+      $("[id^='topicSubGroup']").on('show.bs.collapse', function () {
+        $(this).parent().find("[id^='sgSpan']").toggleClass("fa-caret-right fa-caret-down");
+      });
+      $("[id^='topicSubGroup']").on('hide.bs.collapse', function () {
+        $(this).parent().find("[id^='sgSpan']").toggleClass("fa-caret-right fa-caret-down");
+      });
+
+      // Script para pegar github de quem contribuiu para um documento específico
+     var url = "https://api.github.com/repos/guardians-dsc/docs/commits?path=/analisedados/index.html";
+      url = url.replace("html", "adoc");
+      var unique = [];
+      $.getJSON(url, function(data) {
+          var twitterList = $("<ul />");
+          $.each(data, function(index, item) {
+              if(item.author && unique.indexOf(item.author.html_url) == -1) {
+                  $("<li />", {
+                      "text": item.author.html_url
+                  }).appendTo(twitterList);
+                  unique.push(item.author.html_url)
+              }
+          });
+
+          $("#contribuidores").fadeOut("fast", function() {$(this).empty().append(twitterList).fadeIn(1000);});
+      })
+
+    });
+    /*]]>*/
+  </script>
+    <footer class="footer-origin-docs"></footer>
+</body>
+</html>
