@@ -10,8 +10,22 @@ Esse documento é um guia de como contribuir para adicionar e/ou editar alguma i
 
 * link:https://docs.docker.com/[Docker]
 * https://docs.docker.com/compose/install/[Docker Compose]
+----
+Docker é uma plataforma Open Source que facilita a criação e administração de ambientes isolados (containers).
+
+Extraído do https://www.mundodocker.com.br/o-que-e-docker/
+----
+
 * link:http://asciidoctor.org/docs/asciidoc-writers-guide/[Asciidoctor]
 * link:http://www.asciibinder.org/latest/welcome/[Asciibinder]
+----
+AsciiBinder é um systema de documentação construído no Asciidoctor para a galera que mantém e publica *um monte* de documentos.
+
+Tradução livre extraída do http://asciibinder.org/
+----
+
+Você pode checar a sintaxe do AsciiBinder link:asciidoctor.org/docs/asciidoc-syntax-quick-reference/[aqui]
+
 
 Após fazer o clone do projeto de documentação do {product-title}, acesse a pasta e execute o comando `docker-compose up --build`.
 Será baixado as imagens docker necessárias para o projeto e o no final o *asciidoctor* irá aguardar a conexão do livereload.
@@ -63,7 +77,7 @@ Caso queira adicionar um subtópico para um assunto já criado, basta adicionar 
 === Index.adoc
 Após criar a pasta ou subpasta é necessário criar um arquivo chamado `index.adoc`. É a partir desse arquivo que seja gerado a principal página do tópico em que você está criando.
 
-=== Topic_map.yaml
+=== _topic_map.yaml
 Certo, nesse momento está quase tudo pronto para que você comece de fato a contribuir para documentação. Antes que você coloque a mão na massa é necessário que você adicione a pasta que
 foi criado no arquivo `topic_map.yaml`. Nesse arquivo é onde o *asciibinder* vai saber quais tópicos irá converter de `.adoc -> .html` e também em qual ordem será listado os tópicos no menu
 a esquerda. Segue um exemplo de entrada válida para o arquivo topic_map.yaml, nesse exemplo criei uma pasta na raiz chamada `hello_world`
