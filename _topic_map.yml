@@ -16,6 +16,15 @@ Topics:
     Distros: main
 
 ---
+Name: Projetos
+Dir: projetos
+Distros: main
+Topics:
+  - Name: Projetos
+    File: index
+    Distros: main
+
+---
 Name: Git no LCC
 Dir: git_lcc
 Distros: main
