@@ -9,13 +9,20 @@
 Bem-vindos à documentação do grupo {product-title}, onde você pode achar
 informações e guias sobre os {product-title} e começar explorar as tecnologias que utilizamos.
 
+= Guardians?
 Guardians é um grupo composto por alunos voluntários do curso de Ciência da Computação, da Universidade
 Federal de Campina Grande. Os principais objetivos do grupo são: manter o funcionamento dos laboratórios
 de ensino do curso, suporte aos usuários e às máquinas dos laboratórios, atualizações de segurança,
 correção de falhas, desenvolvimento de novas aplicações, aquisição e disseminação de conhecimento
 sobre **Administração de Sistemas**.
 
+= Nossa Missão
+- adicionar aqui informações sobre 1) o que fazemos 2) como fazemos
 
+= Nossa Filosofia
+- adicionar aqui informações sobre como 1) a organização se estrutura 2) como funcionam os projetos
+
+-
 [TIP]
 ====
 Use o menu da esquerda para navegar na documentação, o campo de busca na parte
