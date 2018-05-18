@@ -16,5 +16,5 @@ services:
         ports:
           - 8080:80
         volumes:
-          - ./:/usr/local/apache2/htdocs/
-          - ./_docker/http/conf:/usr/local/apache2/conf/
+          -  ./:/usr/local/apache2/htdocs/
+         #- ./_docker/http/conf:/usr/local/apache2/conf/
