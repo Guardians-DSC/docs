@@ -21,7 +21,7 @@ sobre **Administração de Sistemas**.
 [.text-justify]
 Os Guardians têm como missão disseminar o conhecimento e atuar na manutenção/gerenciamento dos LCCs (Laboratórios de Ciência da Computação).
 
-- Adicionar aqui informações sobre 2) como fazemos;
+- adicionar aqui informações sobre como fazemos;
 
 = Nossa Filosofia
 
