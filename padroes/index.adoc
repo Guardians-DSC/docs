@@ -1,0 +1,10 @@
+= Padrões dos Guardians
+:toc: macro
+:toc-title:
+
+toc::[]
+
+Com o objetivo de evitar conflitos nas configurações e na busca de melhores práticas na administração de sistemas, esse tópico visa
+guiar os guardians e entusiastas no passo a passo de padrões discutido e acordado pelo grupo.
+
+= link:/docs/projetos/index.html[Guia para subir aplicativos nos servidores] 

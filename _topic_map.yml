@@ -16,6 +16,18 @@ Topics:
     Distros: main
 
 ---
+Name: Padrões
+Dir: padroes
+Distros: main
+Topics:
+  - Name:  Padrões dos Guardians
+    File: index
+    Distros: main
+  - Name:  Deploy nos Servidores
+    File: deployment
+    Distros: main
+
+---
 Name: Projetos
 Dir: projetos
 Distros: main
