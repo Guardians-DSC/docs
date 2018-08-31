@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Instalando Docker | Docker | Guardians-DSC Latest</title>
+  <title>Padrões dos Guardians | Padrões | Guardians-DSC Latest</title>
   <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
   <link href="../../docs/css/docs.css" rel="stylesheet" />
   <link href="/imgs/favicon32x32.png" rel="shortcut icon" type="image/png">
@@ -16,7 +16,7 @@
   <!-- or, set /favicon.ico for IE10 win -->
   <!-- Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Instalando Docker">
+  <meta property="og:title" content="Padrões dos Guardians">
   <meta property="og:image" content="https://raw.githubusercontent.com/Guardians-DSC/docs/gh-pages/imgs/facebook.png">
   <meta property="og:description" content="Documentação Guardians-DSC">
   <meta property="og:locale" content="pt_BR">
@@ -53,11 +53,11 @@
         <a href="../welcome/index.html">Guardians-DSC Latest</a>
       </li>
       <li class="hidden-xs active">
-        <a href="../docker/index.html">Docker</a>
+        <a href="../padroes/index.html">Padrões</a>
       </li>
       
       <li class="hidden-xs active">
-        Instalando Docker
+        Padrões dos Guardians
       </li>
     </ol>
     <div class="row row-offcanvas row-offcanvas-left">
@@ -104,10 +104,10 @@ function myFunction() {
     </li>
     <li class="nav-header sarch" >
       <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup2">
-        <span id="tgSpan2" class="fa fa-angle-right"></span>Padrões
+        <span id="tgSpan2" class="fa fa-angle-down"></span>Padrões
       </a>
-      <ul id="topicGroup2" class="collapse  list-unstyled">
-            <li><a class="" href="../padroes/index.html">Padrões dos Guardians</a></li>
+      <ul id="topicGroup2" class="collapse in list-unstyled">
+            <li><a class=" active" href="../padroes/index.html">Padrões dos Guardians</a></li>
             <li><a class="" href="../padroes/deployment.html">Deploy nos Servidores</a></li>
       </ul>
     </li>
@@ -129,10 +129,10 @@ function myFunction() {
     </li>
     <li class="nav-header sarch" >
       <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup5">
-        <span id="tgSpan5" class="fa fa-angle-down"></span>Docker
+        <span id="tgSpan5" class="fa fa-angle-right"></span>Docker
       </a>
-      <ul id="topicGroup5" class="collapse in list-unstyled">
-            <li><a class=" active" href="../docker/index.html">Instalando Docker</a></li>
+      <ul id="topicGroup5" class="collapse  list-unstyled">
+            <li><a class="" href="../docker/index.html">Instalando Docker</a></li>
       </ul>
     </li>
     <li class="nav-header sarch" >
@@ -147,337 +147,25 @@ function myFunction() {
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 main">
         <div class="page-header">
-          <h1>Instalando Docker</h1>
+          <h1>Padrões dos Guardians</h1>
 
         </div>
         <div id="preamble">
 <div class="sectionbody">
 <div id="toc" class="toc">
 <div id="toctitle" class="title"></div>
-<ul class="sectlevel1">
-<li><a href="#introdução">Introdução</a></li>
-<li><a href="#instalação">Instalação</a>
-<ul class="sectlevel2">
-<li><a href="#configurando-o-repositório">Configurando o repositório</a></li>
-<li><a href="#instalando-o-docker">Instalando o Docker</a></li>
+<ul class="sectlevel0">
+<li><a href="#a-href-docs-projetos-index-html-guia-para-subir-aplicativos-nos-servidores-a"><a href="/docs/projetos/index.html">Guia para subir aplicativos nos servidores</a></a></li>
 </ul>
-</li>
-<li><a href="#usando-o-docker-sem-sudo">Usando o Docker sem sudo</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="introdução"><a class="anchor" href="#introdução"></a>Introdução</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Este tutorial ensina como instalar o Docker. O Docker é uma plataforma de software que permite a criação, o teste e a implantação de aplicações rapidamente. Para saber mais sobre o Docker:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.mundodocker.com.br/o-que-e-docker/">O que é Docker?</a></p>
-</li>
-<li>
-<p><a href="https://imasters.com.br/infra/linux/baleias-na-nuvem-entenda-como-funciona-o-docker/?trace=1519021197&amp;source=single/">Entendendo como o Docker funciona</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instalação"><a class="anchor" href="#instalação"></a>Instalação</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Este tutorial ensina a instalar o Docker no Linux</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="configurando-o-repositório"><a class="anchor" href="#configurando-o-repositório"></a>Configurando o repositório</h3>
-<div class="paragraph">
-<p>1.Atualize o repositório de pacotes do Linux:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get update</pre>
-</div>
 </div>
 <div class="paragraph">
-<p>2.Instale os pacotes necessários para o funcionamento do Docker:</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Antes de continuar com a instalação, verifique qual distribuição Linux você está usando. Para isso, execute, como sudo, o comando:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>cat /etc/*-release | grep PRETTY</pre>
+<p>Com o objetivo de evitar conflitos nas configurações e na busca de melhores práticas na administração de sistemas, esse tópico visa
+guiar os guardians e entusiastas no passo a passo de padrões discutido e acordado pelo grupo.</p>
 </div>
 </div>
-</td>
-</tr>
-</table>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Se você usar Debian:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Se sua distribuição for Jessie or Stretch:</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get install \
-     apt-transport-https \
-     ca-certificates \
-     curl \
-     gnupg2 \
-     software-properties-common</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Se  sua distribuição for Wheezy:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get install \
-     apt-transport-https \
-     ca-certificates \
-     curl \
-     python-software-properties</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Se você usar Ubuntu:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>3.Adicione a chave GPG oficial do Docker</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Se você usar Debian:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+<h1 id="a-href-docs-projetos-index-html-guia-para-subir-aplicativos-nos-servidores-a" class="sect0"><a class="anchor" href="#a-href-docs-projetos-index-html-guia-para-subir-aplicativos-nos-servidores-a"></a><a href="/docs/projetos/index.html">Guia para subir aplicativos nos servidores</a></h1>
 
-sudo apt-key fingerprint 0EBFCD88</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Se você usar Ubuntu:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-sudo apt-key fingerprint 0EBFCD88</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>4.Configure o repositório do Docker</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Se você usar Debian:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>x86_64:</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
-   $(lsb_release -cs) \
-   stable"</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>armhf:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>echo "deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
-     $(lsb_release -cs) stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Se você usar Ubuntu:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>x86_64:</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>armhf:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo add-apt-repository \
-   "deb [arch=armhf] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="instalando-o-docker"><a class="anchor" href="#instalando-o-docker"></a>Instalando o Docker</h3>
-<div class="paragraph">
-<p>1.Atualize o repositório de pacotes do Linux</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get update</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>2.Instale a versão mais recente do Docker</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get install docker-ce</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>3.Verifique se o Docker foi instalado corretamente, executando:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>x86_64:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo docker run hello-world</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>armhf:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo docker run armhf/hello-world</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="usando-o-docker-sem-sudo"><a class="anchor" href="#usando-o-docker-sem-sudo"></a>Usando o Docker sem sudo</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Por padrão, o Docker só pode ser executado como root. Porém, é possível permitir que um usuário sem root possa utiliza-lo.</p>
-</div>
-<div class="paragraph">
-<p>1.Crie o grupo Docker:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo groupadd docker</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>2.Adicione o usuário que terá a permissão de usar o Docker sem sudo. Obs: substitua $USER pelo login do usuário.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo gpasswd -a $USER docker</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>3.Faça logout e depois login na conta cujas permissões foram dadas. Depois, para checar se as configurações tiveram êxito, execute:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>docker run hello-world</pre>
-</div>
-</div>
-</div>
-</div>
 
         <h4> Esse documento  existe graças à contribuição de:</h4>
         <div id="contribuidores"></div>
@@ -505,7 +193,7 @@ sudo apt-key fingerprint 0EBFCD88</pre>
       });
 
       // Script para pegar github de quem contribuiu para um documento específico
-     var url = "https://api.github.com/repos/guardians-dsc/docs/commits?path=/docker/index.html";
+     var url = "https://api.github.com/repos/guardians-dsc/docs/commits?path=/padroes/index.html";
       url = url.replace("html", "adoc");
       var unique = [];
       $.getJSON(url, function(data) {

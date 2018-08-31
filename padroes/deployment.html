@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Projetos | Projetos | Guardians-DSC Latest</title>
+  <title>Deploy nos Servidores | Padrões | Guardians-DSC Latest</title>
   <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
   <link href="../../docs/css/docs.css" rel="stylesheet" />
   <link href="/imgs/favicon32x32.png" rel="shortcut icon" type="image/png">
@@ -16,7 +16,7 @@
   <!-- or, set /favicon.ico for IE10 win -->
   <!-- Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Projetos">
+  <meta property="og:title" content="Deploy nos Servidores">
   <meta property="og:image" content="https://raw.githubusercontent.com/Guardians-DSC/docs/gh-pages/imgs/facebook.png">
   <meta property="og:description" content="Documentação Guardians-DSC">
   <meta property="og:locale" content="pt_BR">
@@ -53,11 +53,11 @@
         <a href="../welcome/index.html">Guardians-DSC Latest</a>
       </li>
       <li class="hidden-xs active">
-        <a href="../projetos/index.html">Projetos</a>
+        <a href="../padroes/index.html">Padrões</a>
       </li>
       
       <li class="hidden-xs active">
-        Projetos
+        Deploy nos Servidores
       </li>
     </ol>
     <div class="row row-offcanvas row-offcanvas-left">
@@ -104,19 +104,19 @@ function myFunction() {
     </li>
     <li class="nav-header sarch" >
       <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup2">
-        <span id="tgSpan2" class="fa fa-angle-right"></span>Padrões
+        <span id="tgSpan2" class="fa fa-angle-down"></span>Padrões
       </a>
-      <ul id="topicGroup2" class="collapse  list-unstyled">
+      <ul id="topicGroup2" class="collapse in list-unstyled">
             <li><a class="" href="../padroes/index.html">Padrões dos Guardians</a></li>
-            <li><a class="" href="../padroes/deployment.html">Deploy nos Servidores</a></li>
+            <li><a class=" active" href="../padroes/deployment.html">Deploy nos Servidores</a></li>
       </ul>
     </li>
     <li class="nav-header sarch" >
       <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup3">
-        <span id="tgSpan3" class="fa fa-angle-down"></span>Projetos
+        <span id="tgSpan3" class="fa fa-angle-right"></span>Projetos
       </a>
-      <ul id="topicGroup3" class="collapse in list-unstyled">
-            <li><a class=" active" href="../projetos/index.html">Projetos</a></li>
+      <ul id="topicGroup3" class="collapse  list-unstyled">
+            <li><a class="" href="../projetos/index.html">Projetos</a></li>
       </ul>
     </li>
     <li class="nav-header sarch" >
@@ -147,33 +147,10 @@ function myFunction() {
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 main">
         <div class="page-header">
-          <h1>Projetos</h1>
+          <h1>Deploy nos servidores</h1>
 
         </div>
-        <div id="preamble">
-<div class="sectionbody">
-<div id="toc" class="toc">
-<div id="toctitle" class="title"></div>
-<ul class="sectlevel0">
-<li><a href="#interface-de-acesso-remoto-ao-laboratório-iarl">Interface de Acesso Remoto ao Laboratório (IARL)</a></li>
-<li><a href="#faq-computação">FAQ - Computação</a></li>
-<li><a href="#shell-scripts">Shell Scripts</a></li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A organização é plural e atua em múltiplas áreas da Computação desenvolvimento de aplicações, scripts de gerenciamento, guias, entre outras coisas.
-Todos os projetos podem ser vistos no nosso <a href="https://github.com/guardians-dsc/">GitHub</a>.
-Aqui você pode encontrar informações gerais sobre estes projetos.</p>
-</div>
-</div>
-</div>
-<h1 id="interface-de-acesso-remoto-ao-laboratório-iarl" class="sect0"><a class="anchor" href="#interface-de-acesso-remoto-ao-laboratório-iarl"></a>Interface de Acesso Remoto ao Laboratório (IARL)</h1>
-<div class="paragraph">
-<p>Adicionar aqui informações gerais referentes ao IARL. Se necessário, cria-se um subtópico e página só para ele.</p>
-</div>
-<h1 id="faq-computação" class="sect0"><a class="anchor" href="#faq-computação"></a>FAQ - Computação</h1>
-
-<h1 id="shell-scripts" class="sect0"><a class="anchor" href="#shell-scripts"></a>Shell Scripts</h1>
+        <h1 id="todo" class="sect0"><a class="anchor" href="#todo"></a>TODO</h1>
 
 
         <h4> Esse documento  existe graças à contribuição de:</h4>
@@ -202,7 +179,7 @@ Aqui você pode encontrar informações gerais sobre estes projetos.</p>
       });
 
       // Script para pegar github de quem contribuiu para um documento específico
-     var url = "https://api.github.com/repos/guardians-dsc/docs/commits?path=/projetos/index.html";
+     var url = "https://api.github.com/repos/guardians-dsc/docs/commits?path=/padroes/index.html";
       url = url.replace("html", "adoc");
       var unique = [];
       $.getJSON(url, function(data) {
